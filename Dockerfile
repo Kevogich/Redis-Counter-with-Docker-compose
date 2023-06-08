@@ -5,8 +5,9 @@ WORKDIR /app
 # Copy only the go.mod file initially
 COPY go.mod .
 
-# Download the dependencies
+COPY go.mod go.sum ./
 RUN go mod download
+
 
 # Copy the rest of the source code
 COPY . .
