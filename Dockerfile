@@ -12,6 +12,6 @@ RUN go mod download
 COPY . .
 
 # Build the binary
-RUN go build -o main .
+RUN go build -o /app/main .
 
 CMD ["./main"]
