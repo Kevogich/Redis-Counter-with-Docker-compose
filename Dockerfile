@@ -5,13 +5,14 @@ WORKDIR /app
 # Copy only the go.mod file initially
 COPY go.mod .
 
-COPY go.mod go.sum ./
+
 RUN go mod download
 
 
 # Copy the rest of the source code
 COPY . .
 
+COPY go.mod go.sum ./
 # Build the binary
 RUN go build -o /app/main .
 
