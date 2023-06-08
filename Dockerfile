@@ -1,17 +1,9 @@
-FROM golang:1.17
+FROM golang:1.16-alpine
 
 WORKDIR /app
 
-# Copy go.mod and go.sum files
-COPY go.mod go.sum ./
-
-# Download the dependencies
-RUN go mod download
-
-# Copy the rest of the source code
 COPY . .
 
-# Build the binary
-RUN go build -o /app/main .
+RUN go build -o main .
 
-CMD ["/app/main"]
+CMD ["./main"]
